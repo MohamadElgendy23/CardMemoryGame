@@ -9,8 +9,18 @@ for (let i = 0; i < imageElements.length; i++) {
 }
 // set onclick for each card
 var arrGridItems = Array.from(grid[0].children);
+arrGridItems = shuffleArray(arrGridItems);
 for (let i = 0; i < arrGridItems.length; i++) {
   arrGridItems[i].onclick = clickCard;
+}
+
+// shuffles card array
+function shuffleArray(array) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 function clickCard(ev) {
